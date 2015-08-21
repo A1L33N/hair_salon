@@ -35,6 +35,19 @@ describe(Stylist) do
     end
   end
 
+  describe "#delete_stylist" do
+    it 'deletes a stylist from the list of stylists' do
+      stylist1 = Stylist.new({:id => nil, :name => 'Buffy Summers'})
+      stylist1.save
+      stylist2 = Stylist.new({:id => nil, :name => 'Lara Croft'})
+      stylist2.save
+      stylist3 = Stylist.new({:id => nil, :name => 'Leslie Knope'})
+      stylist3.save
+      stylist2.delete_stylist
+      expect(Stylist.all).to eq([stylist1, stylist3])
+    end
+  end
+
 
 
 end

@@ -27,6 +27,10 @@ class Stylist
     self.name == another_stylist.name && self.id == another_stylist.id
   end
 
+  define_method(:delete_stylist) do
+    DB.exec("DELETE FROM stylists WHERE id = #{self.id};")
+  end
+
 
 
 
