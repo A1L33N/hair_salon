@@ -9,4 +9,13 @@ describe(Stylist) do
     end
   end
 
+  describe ".all" do
+    it 'is an empty array at first' do
+      expect(Stylist.all).to eq([])
+    end
+  end
+  
+
+
+
 end
