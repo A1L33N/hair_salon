@@ -37,6 +37,15 @@ class Stylist
       DB.exec("UPDATE stylists SET name = '#{@name}' WHERE id = #{@id};")
   end
 
+  define_singleton_method(:find) do |id_number|
+    found_stylist = nil
+    Stylist.all.each() do |stylist|
+      if stylist.id == id_number
+        found_stylist = stylist
+      end
+    end
+    found_stylist
+  end
 
 
 
