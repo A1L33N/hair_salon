@@ -83,6 +83,20 @@ describe(Stylist) do
     end
   end
 
+  describe "#find_client" do
+    it 'returns a specific client from a specific stylist' do
+      stylist1 = Stylist.new({:id => nil, :name => 'Buffy Summers'})
+      stylist1.save
+      client1 = Client.new({:id => nil, :name => 'Arya Stark', :stylist_id => stylist1.id})
+      client1.save
+      client2 = Client.new({:id => nil, :name => 'Sansa Stark', :stylist_id => stylist1.id})
+      client2.save
+      client3 = Client.new({:id => nil, :name => 'Bran Stark', :stylist_id => stylist1.id})
+      client3.save
+      expect(stylist1.find_client(client2.name)).to eq(client2)
+    end
+  end
+
 
 
 
