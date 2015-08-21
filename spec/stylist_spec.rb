@@ -14,7 +14,26 @@ describe(Stylist) do
       expect(Stylist.all).to eq([])
     end
   end
-  
+
+  describe "#save" do
+    it 'save a stylist to the list of stylists' do
+      stylist1 = Stylist.new({:id => nil, :name => 'Buffy Summers'})
+      stylist1.save
+      stylist2 = Stylist.new({:id => nil, :name => 'Lara Croft'})
+      stylist2.save
+      expect(Stylist.all).to eq([stylist1, stylist2])
+    end
+  end
+
+  describe "#==" do
+    it 'will determine if a stylist is equal to another stylist based on its name and id' do
+      stylist1 = Stylist.new({:id => nil, :name => 'Buffy Summers'})
+      stylist1.save
+      stylist2 = Stylist.new({:id => nil, :name => 'Lara Croft'})
+      stylist2.save
+      expect(Stylist.all).to eq([stylist1, stylist2])
+    end
+  end
 
 
 
