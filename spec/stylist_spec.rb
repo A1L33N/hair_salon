@@ -98,6 +98,4 @@ describe(Stylist) do
   end
 
 
-
-
 end
