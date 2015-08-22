@@ -1,0 +1,19 @@
+<h1>Our Stylists</h1>
+
+
+  <% if @all_stylists.any?() %>
+  <ul>
+      <% @all_stylists.each() do |stylist| %>
+        <li><a href="/stylist_info/<%=stylist.id%>"><%= stylist.name %></a></li>
+      <% end %>
+    <% else %>
+     <h4>There are no stylists!</h4>
+  </ul>
+<% end %>
+
+<form action="/stylists" method="post">
+  <input type="text" name="new_stylist" placeholder="Enter Stylist Name">
+  <button name="add_stylist">Add Stylist</button>
+</form>
+
+<a href="/">Return to Home</a>

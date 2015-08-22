@@ -1,0 +1,9 @@
+<h1><%= @stylist.name %> Details</h1>
+
+<form action="/stylist_info/<%=@stylist.id%>" method="post">
+  <input name="_method" type="hidden" value="delete">
+
+  <button type="submit">Delete stylist</button>
+</form>
+
+<a href="/stylists">Return to Stylists</a>
