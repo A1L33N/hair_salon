@@ -41,6 +41,15 @@ class Client
       DB.exec("UPDATE clients SET stylist_id = '#{@stylist_id}' WHERE id = #{@id};")
   end
 
+  define_singleton_method(:find) do |id_number|
+    found_client = nil
+    Client.all.each() do |client|
+      if client.id == id_number
+        found_client = client
+      end
+    end
+    found_client
+  end
 
 
 end

@@ -58,6 +58,17 @@ describe(Client) do
       end
     end
 
+    describe ".find" do
+      it "finds a client by id number" do
+        client1 = Client.new({:id => nil, :name => 'Arya Stark', :stylist_id => 1})
+        client1.save
+        client2 = Client.new({:id => nil, :name => 'Sansa Stark', :stylist_id => 1})
+        client2.save
+        client3 = Client.new({:id => nil, :name => 'Bran Stark', :stylist_id => 1})
+        client3.save
+        expect(Client.find(client2.id)).to eq(client2)
+      end
+    end
 
 
 

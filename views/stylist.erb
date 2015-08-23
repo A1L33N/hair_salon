@@ -1,5 +1,9 @@
 <h1><%= @stylist.name %> Details</h1>
 
+<h3><%= @stylist.name %>'s Clients: Details</h3>
+
+<a href="/clients">Add Clients</a>
+
 <form action="/stylist_info/<%=@stylist.id%>" method="post">
   <input name="_method" type="hidden" value="delete">
 

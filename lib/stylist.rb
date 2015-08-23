@@ -63,7 +63,7 @@ class Stylist
     found_client = nil
     stylist_clients = self.all_clients
     stylist_clients.each() do |client|
-      if search_client == client.name 
+      if search_client == client.name
         found_client = client
       end
     end
