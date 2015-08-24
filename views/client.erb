@@ -5,7 +5,8 @@
 
 <form action="/client_info/<%= @client.id() %>" method="post">
   <input name="_method" type="hidden" value="patch">
-  <input id="name" name="name" type="text" placeholder="Update name">
+  <input id="name" name="name" type="text" placeholder="Update client name">
+
   <button type="submit">Update</button>
 </form>
 

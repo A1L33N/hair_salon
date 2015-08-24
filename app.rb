@@ -36,6 +36,10 @@ end
 delete('/stylist_info/:id') do
   stylist_id = params.fetch('id').to_i
   @stylist = Stylist.find(stylist_id)
+  @stylist_clients = @stylist.all_clients
+  @stylist_clients.each() do |client|
+    client.delete_client
+  end
   @stylist.delete_stylist
   @all_stylists = Stylist.all
   erb(:stylist_list)
