@@ -15,7 +15,7 @@
 <input type="text" name="new_client" placeholder="Enter Client Name">
 <label for="list_id">Select a stylist for this client</label>
 <select id='list_id' name='list_id' type='text'>
-  <% @all_stylists.each() do |stylist| %>
+  <% Stylist.all.each() do |stylist| %>
     <option value="<%= stylist.id()%>"> <%= stylist.name() %> </option>
   <% end %>
 </select>

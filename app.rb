@@ -47,6 +47,7 @@ get('/clients') do
 end
 
 post('/clients') do
+  @all_clients = Client.all
   new_client = Client.new({:id => nil, :name => params.fetch('new_client'), :stylist_id => params.fetch('list_id').to_i})
   new_client.save
   @all_clients = Client.all
@@ -54,8 +55,8 @@ post('/clients') do
 end
 
 get('/client_info/:id') do
-  # @all_clients = Client.all
-  # client_id = params.fetch('id').to_i
-  # @client = Client.find(client_id)
+  @all_clients = Client.all
+  client_id = params.fetch('id').to_i
+  @client = Client.find(client_id)
   erb(:client)
 end
