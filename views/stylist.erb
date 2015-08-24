@@ -1,6 +1,21 @@
 <h1><%= @stylist.name %> Details</h1>
 
-<h3><%= @stylist.name %>'s Clients: Details</h3>
+<h3><%= @stylist.name %>'s Clients:</h3>
+
+<% if @stylist.all_clients.any?() %>
+<ul>
+    <% @stylist.all_clients.each() do |client| %>
+    <li><a href='/client_info/<%=client.id%>'><%= client.name %></a></li>
+    <% end %>
+  <% else %>
+   <h4>There are no clients!</h4>
+</ul>
+<% end %>
+
+
+
+
+
 
 <a href="/clients">Add Clients</a>
 

@@ -27,6 +27,7 @@ end
 
 get('/stylist_info/:id') do
   @all_stylists = Stylist.all
+  @all_clients = Client.all
   stylist_id = params.fetch('id').to_i
   @stylist = Stylist.find(stylist_id)
   erb(:stylist)
@@ -47,6 +48,7 @@ get('/clients') do
 end
 
 post('/clients') do
+  @all_stylists = Stylist.all
   @all_clients = Client.all
   new_client = Client.new({:id => nil, :name => params.fetch('new_client'), :stylist_id => params.fetch('list_id').to_i})
   new_client.save
