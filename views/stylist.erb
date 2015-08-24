@@ -8,21 +8,25 @@
     <li><a href='/client_info/<%=client.id%>'><%= client.name %></a></li>
     <% end %>
   <% else %>
-   <h4>There are no clients!</h4>
+   <h4><%= @stylist.name %> has no clients yet.</h4>
 </ul>
 <% end %>
 
 
-
-
-
-
 <a href="/clients">Add Clients</a>
+
+<form action="/stylist_info/<%= @stylist.id() %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <input id="name" name="name" type="text" placeholder="Update stylist name">
+  <button type="submit">Update</button>
+</form>
 
 <form action="/stylist_info/<%=@stylist.id%>" method="post">
   <input name="_method" type="hidden" value="delete">
 
   <button type="submit">Delete stylist</button>
 </form>
+
+
 
 <a href="/stylists">Return to Stylists</a>

@@ -1,1 +1,18 @@
 <h1><%= @client.name %> details</h1>
+
+<p> Assigned Stylist: <%= @stylist.name %></p>
+
+
+<form action="/client_info/<%= @client.id() %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <input id="name" name="name" type="text" placeholder="Update name">
+  <button type="submit">Update</button>
+</form>
+
+<form action="/client_info/<%=@client.id%>" method="post">
+  <input name="_method" type="hidden" value="delete">
+
+  <button type="submit">Delete client</button>
+</form>
+
+<a href="/clients">Return to client list</a>

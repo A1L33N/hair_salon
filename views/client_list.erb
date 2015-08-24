@@ -1,26 +1,31 @@
 <h1>Our Clients</h1>
 
-<% if @all_clients.any?() %>
-<ul>
+<%if Stylist.all.any?() %>
+
+  <% if @all_clients.any?() %>
+  <ul>
     <% @all_clients.each() do |client| %>
     <li><a href='/client_info/<%=client.id%>'><%= client.name %></a></li>
     <% end %>
   <% else %>
    <h4>There are no clients!</h4>
-</ul>
-<% end %>
+ </ul>
+ <% end %>
 
 
-<form action="/clients" method="post">
-<input type="text" name="new_client" placeholder="Enter Client Name">
-<label for="list_id">Select a stylist for this client</label>
-<select id='list_id' name='list_id' type='text'>
-  <% Stylist.all.each() do |stylist| %>
+ <form action="/clients" method="post">
+   <input type="text" name="new_client" placeholder="Enter Client Name">
+   <label for="list_id">Select a stylist for this client</label>
+  <select id='list_id' name='list_id' type='text'>
+     <% Stylist.all.each() do |stylist| %>
     <option value="<%= stylist.id()%>"> <%= stylist.name() %> </option>
   <% end %>
-</select>
+  </select>
 
-<button name="add_client">Add Client</button>
-</form>
+  <button name="add_client">Add Client</button>
+  </form>
 
+<% else %>
+  <h4>Our salon needs stylists. Please <a href="/stylists">add a stylist</a> before adding clients.</h4>
+<% end %>
 <a href="/">Return to Home</a>
