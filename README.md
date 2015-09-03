@@ -6,7 +6,7 @@
 
 ## Description
 
-_This simple hair salon is capable of tracking clients and stylists in a simple hair salon database. Users can add stylists, add clients, and assign clients to a stylist._
+_This simple hair salon is capable of tracking clients and stylists in a  database. Users can add stylists, add clients, and assign clients to a stylist._
 
 ## Setup
 
